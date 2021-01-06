@@ -1,2 +1,5 @@
-include ':app'
 rootProject.name = "GuruClone"
+include ':extensions'
+include ':feature-stock'
+include ':feature-home'
+include ':app'

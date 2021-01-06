@@ -1,4 +1,4 @@
-package com.luisfelipe.guruclone.presentation.main
+package com.luisfelipe.presentation.home
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,20 +6,19 @@ import androidx.lifecycle.LiveData
 import androidx.navigation.NavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.luisfelipe.guruclone.R
-import com.luisfelipe.guruclone.databinding.ActivityMainBinding
-import com.luisfelipe.guruclone.utils.setupWithNavController
+import com.luisfelipe.extensions.setupWithNavController
+import com.luisfelipe.presentation.home.databinding.ActivityHomeBinding
 
-class MainActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
-    private var _binding: ActivityMainBinding? = null
+    private var _binding: ActivityHomeBinding? = null
     private val binding get() = _binding!!
 
     private var currentNavController: LiveData<NavController>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _binding = ActivityMainBinding.inflate(layoutInflater)
+        _binding = ActivityHomeBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
@@ -33,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initBottomNavigation() {
         val bottomNavigationView: BottomNavigationView = binding.bottomNav
-        val navGraphIds = getGraphIds()
+        val navGraphIds = getNavitagionGraphIds()
         val controller = bottomNavigationView.setupWithNavController(
             navGraphIds = navGraphIds,
             fragmentManager = supportFragmentManager,
@@ -46,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         currentNavController = controller
     }
 
-    private fun getGraphIds(): List<Int> {
+    private fun getNavitagionGraphIds(): List<Int> {
         return listOf(
             R.navigation.my_list,
             R.navigation.explore,

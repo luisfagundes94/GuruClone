@@ -1,4 +1,4 @@
-package com.luisfelipe.guruclone.utils
+package com.luisfelipe.extensions
 
 import android.content.Intent
 import android.util.SparseArray
@@ -10,17 +10,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.luisfelipe.guruclone.R
 
 /**
- * Gerencia os gráficos necessários para uma BottomNavView
+ * Manages the various graphs needed for a [BottomNavigationView].
  *
- * Esse arquivo de extensão é uma alternativa até o Navigation Component suportar
- * múltiplos back stacks.
- *
- * Link Oficial do Autor:
- * https://github.com/android/architecture-components-samples/tree/main/NavigationAdvancedSample
- *
+ * This sample is a workaround until the Navigation Component supports multiple back stacks.
  */
 fun BottomNavigationView.setupWithNavController(
     navGraphIds: List<Int>,

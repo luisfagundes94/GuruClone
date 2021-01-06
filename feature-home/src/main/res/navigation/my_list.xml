@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/myListFragment"
-        android:name="com.luisfelipe.guruclone.presentation.my_list.MyListFragment"
+        android:name="com.luisfelipe.feature_stock.presentation.my_list.MyListFragment"
         android:label="@string/title_my_list"
         tools:layout="@layout/fragment_my_list" />
 </navigation>
