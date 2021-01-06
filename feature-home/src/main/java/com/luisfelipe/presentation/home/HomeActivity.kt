@@ -8,7 +8,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.luisfelipe.extensions.setupWithNavController
 import com.luisfelipe.presentation.home.databinding.ActivityHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
 
     private var _binding: ActivityHomeBinding? = null

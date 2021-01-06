@@ -4,6 +4,8 @@ import com.luisfelipe.buildSrc.Versions
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -54,4 +56,8 @@ dependencies {
     implementation Dependencies.UI.material
     implementation Dependencies.UI.navigationFragment
     implementation Dependencies.UI.navigationUi
+
+    // DI
+    implementation Dependencies.DI.daggerHilt
+    kapt Dependencies.DI.daggerHiltCompiler
 }
