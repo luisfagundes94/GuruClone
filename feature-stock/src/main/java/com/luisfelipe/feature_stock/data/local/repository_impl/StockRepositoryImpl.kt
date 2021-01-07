@@ -14,7 +14,13 @@ class StockRepositoryImpl(private val context: Context, private val stockService
                 companyName = "Bradesco",
                 ticker = "34345",
                 price = 30.5f,
-                variationPercent = 0.50f
+                variationPercent = 5.30f
+            ),
+            Stock(
+                companyName = "Tesla",
+                ticker = "56675",
+                price = 366.5f,
+                variationPercent = -2.6f
             )
         )
     }

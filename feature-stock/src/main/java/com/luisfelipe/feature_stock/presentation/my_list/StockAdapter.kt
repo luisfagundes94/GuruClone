@@ -1,5 +1,6 @@
 package com.luisfelipe.feature_stock.presentation.my_list
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +18,12 @@ class StockAdapter: RecyclerView.Adapter<StockAdapter.StockViewHolder>() {
         if (this.stocks.isNotEmpty()) this.stocks.clear()
 
         this.stocks.addAll(stocks)
+        notifyDataSetChanged()
+    }
+
+    fun remove(position: Int) {
+        val stockItem = stocks[position]
+        stocks.remove(stockItem)
         notifyDataSetChanged()
     }
 
@@ -39,10 +46,26 @@ class StockAdapter: RecyclerView.Adapter<StockAdapter.StockViewHolder>() {
         private val variationPercent: TextView = itemView.findViewById(R.id.variation_percent)
 
         fun bind(stock: Stock) {
+            companyImage.setBackgroundResource(R.drawable.placeholder)
             ticker.text = stock.ticker
             companyName.text = stock.companyName
             price.text = stock.price.toString()
-            variationPercent.text = stock.variationPercent.toString()
+            updateVariationPercentText(stock)
         }
+
+        private fun updateVariationPercentText(stock: Stock) {
+            if (stock.variationPercent < 0) {
+                variationPercent.setTextColor(Color.parseColor(NEGATIVE_COLOR_HEX))
+                variationPercent.text = stock.getFormattedVariationInPercentage()
+            } else {
+                variationPercent.setTextColor(Color.parseColor(POSITIVE_COLOR_HEX))
+                variationPercent.text = stock.getFormattedVariationInPercentage()
+            }
+        }
+    }
+
+    private companion object {
+        const val NEGATIVE_COLOR_HEX = "#D50000"
+        const val POSITIVE_COLOR_HEX = "#01A524"
     }
 }

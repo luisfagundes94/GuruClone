@@ -17,7 +17,7 @@ class WalletFragment : Fragment(R.layout.fragment_wallet) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentWalletBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
