@@ -1,7 +1,9 @@
 package com.luisfelipe.feature_stock.presentation.my_list
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.luisfelipe.extensions.verticalRecyclerViewLayout
@@ -30,9 +32,17 @@ class MyListFragment : Fragment(R.layout.fragment_my_list) {
         viewModel.getStockList()
     }
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentMyListBinding.inflate(layoutInflater, container, false)
+        return binding.root
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentMyListBinding.bind(view)
 
         initRecyclerView()
         initViewModelObservers()
@@ -57,9 +67,9 @@ class MyListFragment : Fragment(R.layout.fragment_my_list) {
         }
     }
 
-    override fun onDestroy() {
+    override fun onDestroyView() {
         _binding = null
-        super.onDestroy()
+        super.onDestroyView()
     }
 
 }
