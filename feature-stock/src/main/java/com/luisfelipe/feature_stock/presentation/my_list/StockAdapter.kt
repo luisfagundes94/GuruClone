@@ -4,11 +4,10 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.luisfelipe.feature_stock.domain.models.Stock
 import com.luisfelipe.stock.R
+import com.luisfelipe.stock.databinding.StockItemBinding
 import java.util.*
 
 class StockAdapter: RecyclerView.Adapter<StockAdapter.StockViewHolder>() {
@@ -51,28 +50,24 @@ class StockAdapter: RecyclerView.Adapter<StockAdapter.StockViewHolder>() {
 
     override fun getItemCount() = stocks.size
 
-    inner class StockViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        private val companyImage: ImageView = itemView.findViewById(R.id.img_company)
-        private val ticker: TextView = itemView.findViewById(R.id.ticker)
-        private val companyName: TextView = itemView.findViewById(R.id.company_name)
-        private val price: TextView = itemView.findViewById(R.id.price)
-        private val variationPercent: TextView = itemView.findViewById(R.id.variation_percent)
+    inner class StockViewHolder(view: View): RecyclerView.ViewHolder(view) {
+        private val binding = StockItemBinding.bind(view)
 
         fun bind(stock: Stock) {
-            companyImage.setBackgroundResource(R.drawable.placeholder)
-            ticker.text = stock.ticker
-            companyName.text = stock.companyName
-            price.text = stock.price.toString()
+            binding.imgCompany.setBackgroundResource(R.drawable.placeholder)
+            binding.ticker.text = stock.ticker
+            binding.companyName.text = stock.companyName
+            binding.price.text = stock.price.toString()
             updateVariationPercentText(stock)
         }
 
         private fun updateVariationPercentText(stock: Stock) {
             if (stock.variationPercent < 0) {
-                variationPercent.setTextColor(Color.parseColor(NEGATIVE_COLOR_HEX))
-                variationPercent.text = stock.getFormattedVariationInPercentage()
+                binding.variationPercent.setTextColor(Color.parseColor(NEGATIVE_COLOR_HEX))
+                binding.variationPercent.text = stock.getFormattedVariationInPercentage()
             } else {
-                variationPercent.setTextColor(Color.parseColor(POSITIVE_COLOR_HEX))
-                variationPercent.text = stock.getFormattedVariationInPercentage()
+                binding.variationPercent.setTextColor(Color.parseColor(POSITIVE_COLOR_HEX))
+                binding.variationPercent.text = stock.getFormattedVariationInPercentage()
             }
         }
     }
