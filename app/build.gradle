@@ -59,10 +59,12 @@ dependencies {
 
     // Lifecycle Components
     implementation Dependencies.LifecycleAwareComponents.lifecycle
+    implementation Dependencies.LifecycleAwareComponents.hiltLifecycleViewModel
 
     // DI
     implementation Dependencies.DI.daggerHilt
     kapt Dependencies.DI.daggerHiltCompiler
+    kapt Dependencies.DI.daggerHiltAndroidCompiler
 
     def navigation_version = "2.3.2"
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
@@ -71,8 +73,8 @@ dependencies {
     def livedata_version = "2.2.0"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$livedata_version"
 
-    def view_model_version =  "2.2.0"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$view_model_version"
+//    def view_model_version =  "2.2.0"
+//    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$view_model_version"
 
     implementation 'com.google.code.gson:gson:2.8.6'
 

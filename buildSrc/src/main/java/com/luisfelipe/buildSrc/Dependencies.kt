@@ -57,7 +57,8 @@ object Dependencies {
 
     object DI {
         const val daggerHilt = "com.google.dagger:hilt-android:${Versions.daggerHilt}"
-        const val daggerHiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.daggerHilt}"
+        const val daggerHiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${Versions.daggerHilt}"
+        const val daggerHiltCompiler = "androidx.hilt:hilt-compiler:${Versions.daggerHiltCompiler}"
     }
 
     object Testing {

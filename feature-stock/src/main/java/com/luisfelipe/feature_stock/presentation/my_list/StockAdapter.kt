@@ -13,6 +13,13 @@ class StockAdapter: RecyclerView.Adapter<StockAdapter.StockViewHolder>() {
 
     private val stocks = mutableListOf<Stock>()
 
+    fun updateStocks(stocks: List<Stock>) {
+        if (this.stocks.isNotEmpty()) this.stocks.clear()
+
+        this.stocks.addAll(stocks)
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StockViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.stock_item, parent, false)
         return StockViewHolder(view)

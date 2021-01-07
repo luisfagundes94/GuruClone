@@ -56,6 +56,9 @@ dependencies {
     implementation Dependencies.LifecycleAwareComponents.liveData
     implementation Dependencies.LifecycleAwareComponents.hiltLifecycleViewModel
 
+    // Data
+    implementation Dependencies.Data.gson
+
     // UI
     implementation Dependencies.UI.appCompat
     implementation Dependencies.UI.material
@@ -65,4 +68,5 @@ dependencies {
     // DI
     implementation Dependencies.DI.daggerHilt
     kapt Dependencies.DI.daggerHiltCompiler
+    kapt Dependencies.DI.daggerHiltAndroidCompiler
 }

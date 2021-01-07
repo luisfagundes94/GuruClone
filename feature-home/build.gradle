@@ -57,7 +57,11 @@ dependencies {
     implementation Dependencies.UI.navigationFragment
     implementation Dependencies.UI.navigationUi
 
+    // Lifecycler-Aware Components
+    implementation Dependencies.LifecycleAwareComponents.hiltLifecycleViewModel
+
     // DI
     implementation Dependencies.DI.daggerHilt
     kapt Dependencies.DI.daggerHiltCompiler
+    kapt Dependencies.DI.daggerHiltAndroidCompiler
 }

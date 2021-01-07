@@ -33,4 +33,5 @@ object Versions {
     const val fragment_ktx = "1.2.5"
     const val activityKtx = "1.1.0"
     const val hiltLifecycleViewModel = "1.0.0-alpha02"
+    const val daggerHiltCompiler = "1.0.0-alpha02"
 }
