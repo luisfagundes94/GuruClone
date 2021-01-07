@@ -20,9 +20,9 @@ Todo o código relacionado a certa funcionalidade está contido em um módulo es
 - Funcionalidades podem ser desenvolvidas em paralelo por times diferentes
 - Rápido tempo de compilação
 
-#### Padrão de design MVVM com arquitetura clean (Model-View-Viewmodel)
+#### MVVM com arquitetura clean
 
-O projeto está estruturado nas seguintes camadas:
+o padrão de design MVVM (Model-View-ViewModel) ajuda na separação da regra de negócios e na lógica de apresentação para a tela (UI). Esta separação torna o sistema mais fácil de testar e realizar manutenção. O projeto está estruturado nas seguintes camadas:
 
 **Data** <br>
 Gerencia os dados da aplicação e expoe esses dados como repositórios para a camada relacionada a regra de negócios (domain)
