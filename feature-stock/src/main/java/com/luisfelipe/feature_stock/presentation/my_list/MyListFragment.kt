@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ItemTouchHelper
 import com.luisfelipe.extensions.verticalRecyclerViewLayout
 import com.luisfelipe.feature_stock.di.StockModule.ADAPTER
-import com.luisfelipe.feature_stock.utils.RecyclerViewFeaturesCallback
+import com.luisfelipe.feature_stock.utils.RecyclerViewGesturesCallback
 import com.luisfelipe.stock.R
 import com.luisfelipe.stock.databinding.FragmentMyListBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -56,12 +56,12 @@ class MyListFragment : Fragment(R.layout.fragment_my_list) {
             layoutManager = verticalRecyclerViewLayout()
             adapter = stocksAdapter
 
-            val recyclerViewFeaturesCallback = RecyclerViewFeaturesCallback(
+            val recyclerViewGesturesCallback = RecyclerViewGesturesCallback(
                 context,
                 binding.recyclerViewStocks,
                 stocksAdapter
             )
-            ItemTouchHelper(recyclerViewFeaturesCallback).attachToRecyclerView(this)
+            ItemTouchHelper(recyclerViewGesturesCallback).attachToRecyclerView(this)
         }
     }
 
