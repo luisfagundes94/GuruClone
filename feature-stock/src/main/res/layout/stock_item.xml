@@ -79,6 +79,7 @@
                     android:id="@+id/price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="end"
                     android:textSize="@dimen/price_size"
                     tools:text="36,83" />
 

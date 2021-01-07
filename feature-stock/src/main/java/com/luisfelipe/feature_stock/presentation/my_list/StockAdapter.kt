@@ -21,10 +21,17 @@ class StockAdapter: RecyclerView.Adapter<StockAdapter.StockViewHolder>() {
         notifyDataSetChanged()
     }
 
-    fun remove(position: Int) {
-        val stockItem = stocks[position]
-        stocks.remove(stockItem)
+
+    fun add(position: Int, stock: Stock) {
+        stocks.add(position, stock)
         notifyDataSetChanged()
+    }
+
+    fun remove(position: Int): Pair<Int, Stock> {
+        val stock = stocks[position]
+        stocks.remove(stock)
+        notifyDataSetChanged()
+        return Pair(position, stock)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StockViewHolder {

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="img_desc_company_logo">Logo da Empresa</string>
+    <string name="warning_item_deleted">deletado</string>
+    <string name="undo">Desfazer</string>
 </resources>
