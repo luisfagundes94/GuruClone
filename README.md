@@ -36,13 +36,13 @@ Todo o código relacionado a certa funcionalidade está contido em um módulo es
 
 o padrão de design MVVM (Model-View-ViewModel) ajuda na separação da regra de negócios e na lógica de apresentação para a tela (UI). Esta separação torna o sistema mais fácil de testar e realizar manutenção. O projeto está estruturado nas seguintes camadas:
 
-**Data** <br>
+_**Data**_ <br>
 Gerencia os dados da aplicação e expoe esses dados como repositórios para a camada relacionada a regra de negócios (domain)
 
-**Domain** (Regra de Negócios) <br>
+_**Domain** (Regra de Negócios)_ <br>
 Camada fonte da aplicação onde são estabelecidas as regras de negócio.
 
-**Presentation** (UI) <br>
+_**Presentation** (UI)_ <br>
 É a camada mais próxima do que o usuário vê na tela, fazendo uso de viewModels e liveDatas para gerenciar dados e estados em um ciclo de vida 
 
 
