@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.luisfelipe.feature_stock.domain.models.Stock
 import com.luisfelipe.stock.R
+import java.util.*
 
 class StockAdapter: RecyclerView.Adapter<StockAdapter.StockViewHolder>() {
 
@@ -32,6 +33,11 @@ class StockAdapter: RecyclerView.Adapter<StockAdapter.StockViewHolder>() {
         stocks.remove(stock)
         notifyDataSetChanged()
         return Pair(position, stock)
+    }
+
+    fun move(fromPosition: Int, toPosition: Int) {
+        Collections.swap(this.stocks, fromPosition, toPosition)
+        notifyItemMoved(fromPosition, toPosition)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StockViewHolder {

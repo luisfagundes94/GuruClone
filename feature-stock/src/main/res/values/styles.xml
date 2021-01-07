@@ -2,6 +2,11 @@
 <resources>
     <style name="roundedCornersImageView" parent="">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">16dp</item>
+        <item name="cornerSize">@dimen/default_radius</item>
+    </style>
+
+    <style name="titleText" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/title</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 </resources>

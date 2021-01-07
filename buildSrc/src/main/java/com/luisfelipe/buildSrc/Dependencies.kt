@@ -46,6 +46,8 @@ object Dependencies {
         const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragment_ktx}"
 
         const val activityKtx = "androidx.activity:activity-ktx:${Versions.activityKtx}"
+
+        const val recyclerViewSwipeDecorator = "it.xabaras.android:recyclerview-swipedecorator:${Versions.recyclerViewSwipeDecorator}"
     }
 
     object Data {

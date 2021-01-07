@@ -7,11 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.snackbar.Snackbar
 import com.luisfelipe.extensions.verticalRecyclerViewLayout
 import com.luisfelipe.feature_stock.di.StockModule.ADAPTER
-import com.luisfelipe.feature_stock.domain.models.Stock
+import com.luisfelipe.feature_stock.utils.RecyclerViewFeaturesCallback
 import com.luisfelipe.stock.R
 import com.luisfelipe.stock.databinding.FragmentMyListBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -57,32 +55,14 @@ class MyListFragment : Fragment(R.layout.fragment_my_list) {
             setHasFixedSize(true)
             layoutManager = verticalRecyclerViewLayout()
             adapter = stocksAdapter
-            ItemTouchHelper(swipeToDeleteCallback).attachToRecyclerView(this)
+
+            val recyclerViewFeaturesCallback = RecyclerViewFeaturesCallback(
+                context,
+                binding.recyclerViewStocks,
+                stocksAdapter
+            )
+            ItemTouchHelper(recyclerViewFeaturesCallback).attachToRecyclerView(this)
         }
-    }
-
-    private val swipeToDeleteCallback =
-        object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean = false
-
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val (position, stock) = stocksAdapter.remove(viewHolder.adapterPosition)
-                showDeletedItemSnackbar(position, stock)
-            }
-        }
-
-    private fun showDeletedItemSnackbar(position: Int, stock: Stock) {
-        Snackbar.make(
-            binding.recyclerViewStocks,
-            stock.companyName + " " + context?.getString(R.string.warning_item_deleted),
-            Snackbar.LENGTH_LONG
-        )
-            .setAction(context?.getString(R.string.undo)) { stocksAdapter.add(position, stock) }
-            .show()
     }
 
     private fun initViewModelObservers() {
