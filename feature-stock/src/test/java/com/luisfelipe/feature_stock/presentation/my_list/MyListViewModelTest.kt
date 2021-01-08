@@ -6,6 +6,12 @@ import com.luisfelipe.feature_stock.domain.models.Company
 import com.luisfelipe.feature_stock.domain.models.Stock
 import com.luisfelipe.feature_stock.domain.usecases.GetStockListFromLocalFile
 import com.luisfelipe.utils.CoroutineRule
+import com.luisfelipe.utils.FakeStockData.Companion.COMPANY_LOGO
+import com.luisfelipe.utils.FakeStockData.Companion.COMPANY_NAME
+import com.luisfelipe.utils.FakeStockData.Companion.ERROR_MESSAGE
+import com.luisfelipe.utils.FakeStockData.Companion.PRICE
+import com.luisfelipe.utils.FakeStockData.Companion.TICKER
+import com.luisfelipe.utils.FakeStockData.Companion.VARIATION_PERCENT
 import com.luisfelipe.utils.getOrAwaitValue
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -23,10 +29,10 @@ class MyListViewModelTest{
 
     @ExperimentalCoroutinesApi
     @get:Rule
-    var coroutinesTestRule = CoroutineRule()
+    val coroutinesTestRule = CoroutineRule()
 
     @get:Rule
-    var rule = InstantTaskExecutorRule()
+    val rule = InstantTaskExecutorRule()
 
     private val getStockListFromLocalFile: GetStockListFromLocalFile = mockk()
 
@@ -86,12 +92,5 @@ class MyListViewModelTest{
         assert(value == ResultStatus.Error(ERROR_MESSAGE))
     }
 
-    companion object {
-        const val COMPANY_NAME = "Instagram"
-        const val COMPANY_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1200px-Instagram_logo_2016.svg.png"
-        const val PRICE = 45450.40f
-        const val VARIATION_PERCENT = 0.50f
-        const val TICKER = "456631"
-        const val ERROR_MESSAGE = "SE LASCOU"
-    }
+
 }
