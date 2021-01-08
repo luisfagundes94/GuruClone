@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.luisfelipe.feature_stock.domain.models.Stock
-import com.luisfelipe.feature_stock.presentation.my_list.StockAdapter
+import com.luisfelipe.feature_stock.presentation.stock_list.StockAdapter
 import com.luisfelipe.stock.R
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 

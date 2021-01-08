@@ -5,7 +5,7 @@ import com.luisfelipe.feature_stock.data.local.repository_impl.StockRepositoryIm
 import com.luisfelipe.feature_stock.data.local.service.StockService
 import com.luisfelipe.feature_stock.domain.repositories.StockRepository
 import com.luisfelipe.feature_stock.domain.usecases.GetStockListFromLocalFile
-import com.luisfelipe.feature_stock.presentation.my_list.StockAdapter
+import com.luisfelipe.feature_stock.presentation.stock_list.StockAdapter
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,4 +1,4 @@
-package com.luisfelipe.feature_stock.presentation.my_list
+package com.luisfelipe.feature_stock.presentation.stock_list
 
 import android.graphics.Color
 import android.util.Log
@@ -10,7 +10,7 @@ import com.luisfelipe.feature_stock.domain.models.Stock
 import com.luisfelipe.feature_stock.utils.load
 import com.luisfelipe.stock.R
 import com.luisfelipe.stock.databinding.StockItemBinding
-import java.util.Collections
+import java.util.*
 
 class StockAdapter : RecyclerView.Adapter<StockAdapter.StockViewHolder>() {
 
