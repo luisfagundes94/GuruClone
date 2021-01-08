@@ -1,4 +1,4 @@
-package com.luisfelipe.feature_stock.presentation.stock_list
+package com.luisfelipe.feature_stock.presentation.my_list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,22 +11,22 @@ import com.luisfelipe.feature_stock.di.StockModule.ADAPTER
 import com.luisfelipe.feature_stock.utils.RecyclerViewGesturesCallback
 import com.luisfelipe.feature_stock.utils.verticalRecyclerViewLayout
 import com.luisfelipe.stock.R
-import com.luisfelipe.stock.databinding.FragmentStockListBinding
+import com.luisfelipe.stock.databinding.FragmentMyListBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import javax.inject.Named
 
 @AndroidEntryPoint
-class StockListFragment : Fragment(R.layout.fragment_stock_list) {
+class MyListFragment : Fragment(R.layout.fragment_my_list) {
 
-    private var _binding: FragmentStockListBinding? = null
+    private var _binding: FragmentMyListBinding? = null
     private val binding get() = _binding!!
 
     @Named(ADAPTER)
     @Inject
     lateinit var stocksAdapter: StockAdapter
 
-    private val viewModel: StockListViewModel by viewModels()
+    private val viewModel: MyListViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +39,7 @@ class StockListFragment : Fragment(R.layout.fragment_stock_list) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentStockListBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentMyListBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 

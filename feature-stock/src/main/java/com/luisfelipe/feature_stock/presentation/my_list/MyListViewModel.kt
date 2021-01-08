@@ -1,4 +1,4 @@
-package com.luisfelipe.feature_stock.presentation.stock_list
+package com.luisfelipe.feature_stock.presentation.my_list
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
@@ -11,7 +11,7 @@ import com.luisfelipe.feature_stock.domain.usecases.GetStockListFromLocalFile
 import javax.inject.Named
 import kotlinx.coroutines.launch
 
-class StockListViewModel @ViewModelInject constructor(
+class MyListViewModel @ViewModelInject constructor(
     @Named(GET_STOCK_LIST_FROM_LOCAL_FILE)
     private val getStockListFromLocalFile: GetStockListFromLocalFile
 ) : ViewModel() {
