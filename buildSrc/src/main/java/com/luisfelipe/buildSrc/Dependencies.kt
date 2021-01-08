@@ -50,6 +50,8 @@ object Dependencies {
         const val recyclerViewSwipeDecorator = "it.xabaras.android:recyclerview-swipedecorator:${Versions.recyclerViewSwipeDecorator}"
 
         const val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
+
+        const val roundedImageView = "com.makeramen:roundedimageview:${Versions.roundedImageView}"
     }
 
     object Data {

@@ -37,4 +37,6 @@ object Versions {
     const val recyclerViewSwipeDecorator = "1.2.3"
 
     const val picasso = "2.71828"
+
+    const val roundedImageView = "2.3.0"
 }

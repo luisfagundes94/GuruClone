@@ -64,6 +64,7 @@ dependencies {
     implementation Dependencies.UI.fragmentKtx
     implementation Dependencies.UI.recyclerViewSwipeDecorator
     implementation Dependencies.UI.picasso
+    implementation Dependencies.UI.roundedImageView
 
     // DI
     implementation Dependencies.DI.daggerHilt

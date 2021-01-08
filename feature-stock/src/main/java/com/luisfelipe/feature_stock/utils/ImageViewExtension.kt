@@ -1,8 +1,10 @@
 package com.luisfelipe.feature_stock.utils
 
-import com.google.android.material.imageview.ShapeableImageView
+import android.util.Log
+import android.widget.ImageView
+import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 
-fun ShapeableImageView.load(imageUrl: String) {
+fun ImageView.load(imageUrl: String) {
     Picasso.get().load(imageUrl).into(this)
 }
