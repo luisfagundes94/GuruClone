@@ -15,7 +15,7 @@ class RecyclerViewGesturesCallback(
     private val context: Context,
     private val recyclerView: RecyclerView,
     private val adapter: StockAdapter
-): ItemTouchHelper.SimpleCallback(
+) : ItemTouchHelper.SimpleCallback(
     ItemTouchHelper.UP or ItemTouchHelper.DOWN or ItemTouchHelper.START or ItemTouchHelper.END,
     ItemTouchHelper.LEFT
 ) {

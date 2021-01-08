@@ -70,4 +70,8 @@ dependencies {
     implementation Dependencies.DI.daggerHilt
     kapt Dependencies.DI.daggerHiltCompiler
     kapt Dependencies.DI.daggerHiltAndroidCompiler
+
+    // Testing
+    implementation Dependencies.Testing.junit
+    implementation Dependencies.Testing.junitAndroid
 }

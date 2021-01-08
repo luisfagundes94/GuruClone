@@ -10,9 +10,9 @@ import com.luisfelipe.feature_stock.domain.models.Stock
 import com.luisfelipe.feature_stock.utils.load
 import com.luisfelipe.stock.R
 import com.luisfelipe.stock.databinding.StockItemBinding
-import java.util.*
+import java.util.Collections
 
-class StockAdapter: RecyclerView.Adapter<StockAdapter.StockViewHolder>() {
+class StockAdapter : RecyclerView.Adapter<StockAdapter.StockViewHolder>() {
 
     private val stocks = mutableListOf<Stock>()
     private val selectedStocks = mutableListOf<Stock>()
@@ -101,7 +101,7 @@ class StockAdapter: RecyclerView.Adapter<StockAdapter.StockViewHolder>() {
 
     override fun getItemCount() = stocks.size
 
-    inner class StockViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class StockViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = StockItemBinding.bind(itemView)
 
         private val variationPercent = binding.variationPercent

@@ -3,12 +3,14 @@ package com.luisfelipe.buildSrc
 object Versions {
 
     // Gradle
+    const val gradle_plugin = "4.1.1"
     const val compile_sdk = 30
     const val build_tools = "30.0.1"
     const val min_sdk = 21
     const val target_sdk = 30
     const val version_code = 1
     const val version_name = "1.0"
+    const val ktlint_version = "0.36.0"
 
     // DI
     const val daggerHilt = "2.28-alpha"

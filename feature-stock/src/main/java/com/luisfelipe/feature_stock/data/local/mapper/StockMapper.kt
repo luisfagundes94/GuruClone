@@ -19,6 +19,5 @@ class StockMapper {
             }
             return stockList
         }
-
     }
 }

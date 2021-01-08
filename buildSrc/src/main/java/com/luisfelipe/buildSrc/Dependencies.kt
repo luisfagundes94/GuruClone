@@ -4,6 +4,9 @@ object Dependencies {
 
     object Gradle {
         const val daggerHiltGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:${Versions.daggerHilt}"
+        const val kotlin_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
+        const val gradle_plugin = "com.android.tools.build:gradle:${Versions.gradle_plugin}"
+        const val ktlint_plugin = "com.pinterest:ktlint:${Versions.ktlint_version}"
     }
 
     object Core {
@@ -74,5 +77,4 @@ object Dependencies {
         const val junitAndroid = "androidx.test.ext:junit:${Versions.junitAndroid}"
         const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
     }
-
 }

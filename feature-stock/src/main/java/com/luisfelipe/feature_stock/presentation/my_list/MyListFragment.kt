@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ItemTouchHelper
-import com.luisfelipe.feature_stock.utils.verticalRecyclerViewLayout
 import com.luisfelipe.feature_stock.di.StockModule.ADAPTER
 import com.luisfelipe.feature_stock.utils.RecyclerViewGesturesCallback
+import com.luisfelipe.feature_stock.utils.verticalRecyclerViewLayout
 import com.luisfelipe.stock.R
 import com.luisfelipe.stock.databinding.FragmentMyListBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -68,7 +68,6 @@ class MyListFragment : Fragment(R.layout.fragment_my_list) {
     private fun initViewModelObservers() {
         viewModel.apply {
             isLoading.observe(viewLifecycleOwner, {
-
             })
             stocks.observe(viewLifecycleOwner, { stocks ->
                 stocksAdapter.updateStocks(stocks)
@@ -80,5 +79,4 @@ class MyListFragment : Fragment(R.layout.fragment_my_list) {
         _binding = null
         super.onDestroyView()
     }
-
 }

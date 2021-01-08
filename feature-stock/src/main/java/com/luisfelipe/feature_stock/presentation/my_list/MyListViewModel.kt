@@ -8,8 +8,8 @@ import androidx.lifecycle.viewModelScope
 import com.luisfelipe.feature_stock.di.StockModule.GET_STOCK_LIST_FROM_LOCAL_FILE
 import com.luisfelipe.feature_stock.domain.models.Stock
 import com.luisfelipe.feature_stock.domain.usecases.GetStockListFromLocalFile
-import kotlinx.coroutines.launch
 import javax.inject.Named
+import kotlinx.coroutines.launch
 
 class MyListViewModel @ViewModelInject constructor(
     @Named(GET_STOCK_LIST_FROM_LOCAL_FILE)
@@ -27,5 +27,4 @@ class MyListViewModel @ViewModelInject constructor(
         val stocks = getStockListFromLocalFile()
         stocksLiveData.postValue(stocks)
     }
-
 }
