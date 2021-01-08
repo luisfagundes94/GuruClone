@@ -3,6 +3,7 @@
     {
       "ticker": "IBOV",
       "company": "Ibovespa",
+      "imageUrl": "https://media.maisretorno.com/blog/wp-content/uploads/2018/08/ibovespa.png",
       "status": "Em Negociação",
       "tags": [
         "Índice Não Negociável"
@@ -15,6 +16,7 @@
     {
       "ticker": "MGLU3",
       "company": "Magazine Luiza",
+      "imageUrl": "https://www.traycorp.com.br/wp-content/uploads/2020/03/magalu.jpg",
       "status": "Em Negociação",
       "tags": [
         "Empresa Verde",
@@ -54,6 +56,7 @@
     {
       "ticker": "BBAS3",
       "company": "Banco do Brasil",
+      "imageUrl": "https://midiainteressante.com/wp-content/uploads/2009/02/banco-do-brasil-2017.png",
       "status": "Em Negociação",
       "tags": [
         "Boa Liquidez",
@@ -95,6 +98,7 @@
     {
       "ticker": "ITSA4",
       "company": "Itausa",
+      "imageUrl": "https://logospng.org/wp-content/uploads/itausa.png",
       "status": "Em Negociação",
       "tags": [
         "Bem Conceituada",
@@ -136,6 +140,7 @@
     {
       "ticker": "PETR4",
       "company": "Petrobras",
+      "imageUrl": "https://www.panoramaoffshore.com.br/wp-content/uploads/2016/12/peroba.png",
       "status": "Em Negociação",
       "tags": [
         "Governança Diferenciada",
@@ -173,6 +178,7 @@
     {
       "ticker": "VALE3",
       "company": "Vale",
+      "imageUrl": "https://logospng.org/wp-content/uploads/vale.png",
       "status": "Em Negociação",
       "tags": [
         "Boa Liquidez",

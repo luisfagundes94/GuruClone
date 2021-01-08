@@ -1,16 +1,16 @@
-package com.luisfelipe.guruclone.presentation.wallet
+package com.luisfelipe.feature_profile.presentation.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.luisfelipe.guruclone.R
-import com.luisfelipe.guruclone.databinding.FragmentWalletBinding
+import com.luisfelipe.feature_profile.R
+import com.luisfelipe.feature_profile.databinding.FragmentProfileBinding
 
-class WalletFragment : Fragment(R.layout.fragment_wallet) {
+class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
-    private var _binding: FragmentWalletBinding? = null
+    private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -18,7 +18,7 @@ class WalletFragment : Fragment(R.layout.fragment_wallet) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentWalletBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentProfileBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 

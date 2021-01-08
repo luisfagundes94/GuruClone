@@ -15,8 +15,11 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/extensions" />
+            <option value="$PROJECT_DIR$/feature-explore" />
             <option value="$PROJECT_DIR$/feature-home" />
+            <option value="$PROJECT_DIR$/feature-profile" />
             <option value="$PROJECT_DIR$/feature-stock" />
+            <option value="$PROJECT_DIR$/feature-wallet" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

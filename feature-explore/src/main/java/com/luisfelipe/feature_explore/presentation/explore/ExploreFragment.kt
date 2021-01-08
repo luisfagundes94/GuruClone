@@ -1,16 +1,16 @@
-package com.luisfelipe.guruclone.presentation.profile
+package com.luisfelipe.feature_explore.presentation.explore
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.luisfelipe.guruclone.R
-import com.luisfelipe.guruclone.databinding.FragmentProfileBinding
+import com.luisfelipe.feature_explore.R
+import com.luisfelipe.feature_explore.databinding.FragmentExploreBinding
 
-class ProfileFragment : Fragment(R.layout.fragment_profile) {
+class ExploreFragment : Fragment(R.layout.fragment_explore) {
 
-    private var _binding: FragmentProfileBinding? = null
+    private var _binding: FragmentExploreBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -18,7 +18,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentProfileBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentExploreBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 

@@ -48,6 +48,8 @@ object Dependencies {
         const val activityKtx = "androidx.activity:activity-ktx:${Versions.activityKtx}"
 
         const val recyclerViewSwipeDecorator = "it.xabaras.android:recyclerview-swipedecorator:${Versions.recyclerViewSwipeDecorator}"
+
+        const val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
     }
 
     object Data {

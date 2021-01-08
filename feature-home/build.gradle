@@ -44,6 +44,9 @@ android {
 dependencies {
 
     implementation project(':feature-stock')
+    implementation project(':feature-explore')
+    implementation project(':feature-profile')
+    implementation project(':feature-wallet')
     implementation project(':extensions')
 
     // Core

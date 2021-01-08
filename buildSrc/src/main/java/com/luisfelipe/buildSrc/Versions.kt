@@ -35,4 +35,6 @@ object Versions {
     const val hiltLifecycleViewModel = "1.0.0-alpha02"
     const val daggerHiltCompiler = "1.0.0-alpha02"
     const val recyclerViewSwipeDecorator = "1.2.3"
+
+    const val picasso = "2.71828"
 }

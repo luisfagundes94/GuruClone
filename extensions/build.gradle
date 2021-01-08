@@ -53,6 +53,7 @@ dependencies {
     implementation Dependencies.UI.material
     implementation Dependencies.UI.appCompat
     implementation Dependencies.UI.fragmentKtx
+    implementation Dependencies.UI.picasso
 
     // Lifecycle
     implementation Dependencies.LifecycleAwareComponents.liveData

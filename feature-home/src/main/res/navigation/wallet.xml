@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/walletFragment"
-        android:name="com.luisfelipe.guruclone.presentation.wallet.WalletFragment"
+        android:name="com.luisfelipe.feature_wallet.presentation.wallet.WalletFragment"
         android:label="@string/title_wallet"
         tools:layout="@layout/fragment_wallet" />
 </navigation>

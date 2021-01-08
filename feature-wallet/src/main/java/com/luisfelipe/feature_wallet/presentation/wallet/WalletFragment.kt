@@ -1,16 +1,16 @@
-package com.luisfelipe.guruclone.presentation.explore
+package com.luisfelipe.feature_wallet.presentation.wallet
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.luisfelipe.guruclone.R
-import com.luisfelipe.guruclone.databinding.FragmentExploreBinding
+import com.luisfelipe.feature_wallet.R
+import com.luisfelipe.feature_wallet.databinding.FragmentWalletBinding
 
-class ExploreFragment : Fragment(R.layout.fragment_explore) {
+class WalletFragment : Fragment(R.layout.fragment_wallet) {
 
-    private var _binding: FragmentExploreBinding? = null
+    private var _binding: FragmentWalletBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -18,7 +18,7 @@ class ExploreFragment : Fragment(R.layout.fragment_explore) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentExploreBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentWalletBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 

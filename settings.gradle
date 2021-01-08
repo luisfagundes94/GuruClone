@@ -1,3 +1,6 @@
+include ':feature-wallet'
+include ':feature-profile'
+include ':feature-explore'
 rootProject.name = "GuruClone"
 include ':extensions'
 include ':feature-stock'
