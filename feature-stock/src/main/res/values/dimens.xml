@@ -2,8 +2,8 @@
 <resources>
     <dimen name="stock_item_size">80dp</dimen>
     <dimen name="title">18sp</dimen>
-    <dimen name="price_size">24sp</dimen>
-    <dimen name="ticker_size">24sp</dimen>
+    <dimen name="price_size">22sp</dimen>
+    <dimen name="ticker_size">22sp</dimen>
     <dimen name="small_margin_top">4dp</dimen>
     <dimen name="default_elevation">8dp</dimen>
     <dimen name="default_radius">8dp</dimen>

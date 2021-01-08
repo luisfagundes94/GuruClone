@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.luisfelipe.feature_stock.utils.load
 import com.luisfelipe.feature_stock.domain.models.Stock
+import com.luisfelipe.feature_stock.utils.load
 import com.luisfelipe.stock.R
 import com.luisfelipe.stock.databinding.StockItemBinding
 import java.util.*
@@ -126,7 +126,7 @@ class StockAdapter: RecyclerView.Adapter<StockAdapter.StockViewHolder>() {
     }
 
     private companion object {
-        const val NEGATIVE_COLOR_HEX = "#D50000"
+        const val NEGATIVE_COLOR_HEX = "#FD5A5B"
         const val POSITIVE_COLOR_HEX = "#01A524"
     }
 }

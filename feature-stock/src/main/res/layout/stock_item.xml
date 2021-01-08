@@ -8,17 +8,16 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/stock_item_size"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/white"
         android:clickable="true"
+        android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         app:cardCornerRadius="@dimen/default_radius"
-        app:cardElevation="@dimen/default_elevation"
-        android:focusable="true">
+        app:cardElevation="@dimen/default_elevation">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -54,6 +53,7 @@
 
                 <TextView
                     android:id="@+id/ticker"
+                    style="@style/titleText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/ticker_size"
@@ -63,7 +63,6 @@
                     android:id="@+id/company_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/small_margin_top"
                     tools:text="Banco do Brasil" />
             </LinearLayout>
 
@@ -79,6 +78,7 @@
 
                 <TextView
                     android:id="@+id/price"
+                    style="@style/titleText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="end"
@@ -89,8 +89,8 @@
                     android:id="@+id/variation_percent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/small_margin_top"
                     android:gravity="end"
+                    android:textStyle="bold"
                     tools:text="24,81" />
             </LinearLayout>
 

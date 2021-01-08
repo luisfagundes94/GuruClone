@@ -7,6 +7,6 @@
 
     <style name="titleText" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">@dimen/title</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">?attr/textColorTitle</item>
     </style>
 </resources>
