@@ -2,7 +2,11 @@
 O aplicativo é um clone parcial do projeto original "Guru", onde é possível acompanhar a bolsa de valores e suas ações
 
 # Telas
+## Light Mode
 <img src="/screenshots/screenshot1.png" width="200" /> <img src="/screenshots/screenshot2.png" width="200" /> <img src="/screenshots/screenshot3.png" width="200" />  <img src="/screenshots/screenshot4.png" width="200" />
+
+## Dark Mode
+<img src="/screenshots/dark_screenshot1.png" width="200" /> <img src="/screenshots/dark_screenshot2.png" width="200" /> <img src="/screenshots/dark_screenshot3.png" width="200" />  <img src="/screenshots/dark_screenshot4.png" width="200" />
 
 # Stack das Principais Tecnologias
 - [Kotlin](https://kotlinlang.org/) - _linguagem utilizada_
