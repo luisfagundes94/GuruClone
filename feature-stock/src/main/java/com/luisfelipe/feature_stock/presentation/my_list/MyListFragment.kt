@@ -7,14 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ItemTouchHelper
-import com.luisfelipe.feature_stock.di.StockModule.ADAPTER
+import com.luisfelipe.feature_stock.domain.enums.ResultStatus
 import com.luisfelipe.feature_stock.utils.RecyclerViewGesturesCallback
+import com.luisfelipe.feature_stock.utils.toast
 import com.luisfelipe.feature_stock.utils.verticalRecyclerViewLayout
 import com.luisfelipe.stock.R
 import com.luisfelipe.stock.databinding.FragmentMyListBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-import javax.inject.Named
 
 @AndroidEntryPoint
 class MyListFragment : Fragment(R.layout.fragment_my_list) {
@@ -22,9 +22,8 @@ class MyListFragment : Fragment(R.layout.fragment_my_list) {
     private var _binding: FragmentMyListBinding? = null
     private val binding get() = _binding!!
 
-    @Named(ADAPTER)
     @Inject
-    lateinit var stocksAdapter: StockAdapter
+    lateinit var myListAdapter: MyListAdapter
 
     private val viewModel: MyListViewModel by viewModels()
 
@@ -54,12 +53,12 @@ class MyListFragment : Fragment(R.layout.fragment_my_list) {
         binding.recyclerViewStocks.apply {
             setHasFixedSize(true)
             layoutManager = verticalRecyclerViewLayout()
-            adapter = stocksAdapter
+            adapter = myListAdapter
 
             val recyclerViewGesturesCallback = RecyclerViewGesturesCallback(
                 context,
                 binding.recyclerViewStocks,
-                stocksAdapter
+                myListAdapter
             )
             ItemTouchHelper(recyclerViewGesturesCallback).attachToRecyclerView(this)
         }
@@ -67,10 +66,12 @@ class MyListFragment : Fragment(R.layout.fragment_my_list) {
 
     private fun initViewModelObservers() {
         viewModel.apply {
-            isLoading.observe(viewLifecycleOwner, {
-            })
-            stocks.observe(viewLifecycleOwner, { stocks ->
-                stocksAdapter.updateStocks(stocks)
+            stockListResultStatus.observe(viewLifecycleOwner, { resultStatus ->
+                when (resultStatus) {
+                    is ResultStatus.Success -> myListAdapter.updateStocks(resultStatus.data)
+                    is ResultStatus.Error -> toast(getString(R.string.warning_failed_to_fetch_stocks))
+                    is ResultStatus.Empty -> toast(getString(R.string.warning_empty_list))
+                }
             })
         }
     }

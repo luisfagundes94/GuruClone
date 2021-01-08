@@ -7,14 +7,14 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.luisfelipe.feature_stock.domain.models.Stock
-import com.luisfelipe.feature_stock.presentation.my_list.StockAdapter
+import com.luisfelipe.feature_stock.presentation.my_list.MyListAdapter
 import com.luisfelipe.stock.R
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 
 class RecyclerViewGesturesCallback(
     private val context: Context,
     private val recyclerView: RecyclerView,
-    private val adapter: StockAdapter
+    private val listAdapter: MyListAdapter
 ) : ItemTouchHelper.SimpleCallback(
     ItemTouchHelper.UP or ItemTouchHelper.DOWN or ItemTouchHelper.START or ItemTouchHelper.END,
     ItemTouchHelper.LEFT
@@ -24,12 +24,12 @@ class RecyclerViewGesturesCallback(
         viewHolder: RecyclerView.ViewHolder,
         target: RecyclerView.ViewHolder
     ): Boolean {
-        adapter.move(viewHolder.adapterPosition, target.adapterPosition)
+        listAdapter.move(viewHolder.adapterPosition, target.adapterPosition)
         return false
     }
 
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-        val (position, stock) = adapter.remove(viewHolder.adapterPosition)
+        val (position, stock) = listAdapter.remove(viewHolder.adapterPosition)
         showDeletedItemSnackbar(position, stock)
     }
 
@@ -77,7 +77,7 @@ class RecyclerViewGesturesCallback(
             stock.ticker + " " + context.getString(R.string.warning_item_deleted),
             Snackbar.LENGTH_LONG
         )
-            .setAction(context.getString(R.string.undo)) { adapter.add(position, stock) }
+            .setAction(context.getString(R.string.undo)) { listAdapter.add(position, stock) }
             .show()
     }
 }

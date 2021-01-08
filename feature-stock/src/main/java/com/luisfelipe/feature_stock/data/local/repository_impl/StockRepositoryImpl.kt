@@ -3,26 +3,31 @@ package com.luisfelipe.feature_stock.data.local.repository_impl
 import android.content.Context
 import com.luisfelipe.feature_stock.data.local.mapper.StockMapper
 import com.luisfelipe.feature_stock.data.local.service.StockService
+import com.luisfelipe.feature_stock.domain.enums.ResultStatus
 import com.luisfelipe.feature_stock.domain.models.Stock
 import com.luisfelipe.feature_stock.domain.repositories.StockRepository
 import com.luisfelipe.stock.R
+import kotlinx.coroutines.withTimeout
 
 class StockRepositoryImpl(private val context: Context, private val stockService: StockService) :
     StockRepository {
-    override suspend fun getStockListFromLocalFile(): List<Stock> {
-        val stockListData = stockService.getStockList(context, R.raw.json_data)
-        return StockMapper.mapDataToDomain(stockListData)
+
+    companion object {
+        const val REQUEST_TIMEOUT = 5000L
     }
 
-    override suspend fun getStockListFromLocalDb(): List<Stock> {
-        TODO("Not yet implemented")
-    }
+    override suspend fun getStockListFromLocalFile(): ResultStatus<List<Stock>> {
+        return withTimeout(REQUEST_TIMEOUT) {
+            try {
+                val stockListData = stockService.getStockList(context, R.raw.json_data)
+                val stockList = StockMapper.mapDataToDomain(stockListData)
 
-    override suspend fun saveStockToLocalDb(stock: Stock) {
-        TODO("Not yet implemented")
-    }
+                if (stockList.isEmpty()) return@withTimeout ResultStatus.Empty
+                else return@withTimeout ResultStatus.Success(stockList)
 
-    override suspend fun deleteStockFromLocalDb(stock: Stock) {
-        TODO("Not yet implemented")
+            } catch (exception: Exception) {
+                return@withTimeout ResultStatus.Error(exception.message.toString())
+            }
+        }
     }
 }

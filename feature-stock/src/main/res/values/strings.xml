@@ -5,4 +5,6 @@
     <string name="undo">Desfazer</string>
     <string name="delete">DELETAR</string>
     <string name="menu_title_select_all">Select All</string>
+    <string name="warning_failed_to_fetch_stocks">Falha ao buscar ações :(</string>
+    <string name="warning_empty_list">Lista vazia!</string>
 </resources>

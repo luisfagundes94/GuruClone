@@ -50,4 +50,6 @@ object Versions {
     const val junit = "4.13.1"
     const val junitAndroid = "1.1.2"
     const val espresso = "3.3.0"
+    const val coroutinesTesting = "1.3.6"
+    const val archCoreTesting = "2.1.0"
 }
