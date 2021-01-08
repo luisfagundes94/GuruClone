@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ItemTouchHelper
-import com.luisfelipe.extensions.verticalRecyclerViewLayout
+import com.luisfelipe.feature_stock.utils.verticalRecyclerViewLayout
 import com.luisfelipe.feature_stock.di.StockModule.ADAPTER
 import com.luisfelipe.feature_stock.utils.RecyclerViewGesturesCallback
 import com.luisfelipe.stock.R

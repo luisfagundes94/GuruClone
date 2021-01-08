@@ -43,9 +43,6 @@ android {
 
 dependencies {
 
-    // Module
-    implementation project(':extensions')
-
     // Core
     implementation Dependencies.Core.kotlin
     implementation Dependencies.Core.legacySupport

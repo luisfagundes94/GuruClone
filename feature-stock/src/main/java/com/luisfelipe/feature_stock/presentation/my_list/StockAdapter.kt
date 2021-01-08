@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.luisfelipe.extensions.load
+import com.luisfelipe.feature_stock.utils.load
 import com.luisfelipe.feature_stock.domain.models.Stock
 import com.luisfelipe.stock.R
 import com.luisfelipe.stock.databinding.StockItemBinding

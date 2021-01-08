@@ -1,4 +1,4 @@
-package com.luisfelipe.extensions
+package com.luisfelipe.feature_stock.utils
 
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager

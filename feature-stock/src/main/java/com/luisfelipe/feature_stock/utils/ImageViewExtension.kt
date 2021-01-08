@@ -1,4 +1,4 @@
-package com.luisfelipe.extensions
+package com.luisfelipe.feature_stock.utils
 
 import com.google.android.material.imageview.ShapeableImageView
 import com.squareup.picasso.Picasso
