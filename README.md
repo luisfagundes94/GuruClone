@@ -21,6 +21,8 @@ O aplicativo é um clone parcial do projeto original "Guru", onde é possível a
 - [Picasso](https://square.github.io/picasso/) - _carregamento de imagens web para imageViews_
 - [Gson](https://github.com/google/gson) - _conversor de JSON para classe de modelo e vice-versa_
 - [ktlint](https://github.com/pinterest/ktlint) - _padrão de formatação de código_
+- [MockK](https://mockk.io/) - _biblioteca de mock para o kotlin_
+- [Espresso](https://developer.android.com/training/testing/espresso) - _Testes de UI_
 
 
 # Guia de Instalação
