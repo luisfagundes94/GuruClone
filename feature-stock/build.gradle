@@ -65,6 +65,7 @@ dependencies {
     implementation Dependencies.UI.recyclerViewSwipeDecorator
     implementation Dependencies.UI.picasso
     implementation Dependencies.UI.roundedImageView
+    implementation Dependencies.UI.shimmerEffect
 
     // DI
     implementation Dependencies.DI.daggerHilt
@@ -73,8 +74,10 @@ dependencies {
 
     // Testing
     testImplementation Dependencies.Testing.junit
-    testImplementation Dependencies.Testing.junitAndroid
+    androidTestImplementation Dependencies.Testing.junitAndroid
     testImplementation Dependencies.Testing.coroutinesTesting
     testImplementation Dependencies.Testing.mockk
+    androidTestImplementation Dependencies.Testing.mockkAndroid
     testImplementation Dependencies.Testing.archCoreTesting
+    debugImplementation Dependencies.Testing.fragmentTesting
 }
