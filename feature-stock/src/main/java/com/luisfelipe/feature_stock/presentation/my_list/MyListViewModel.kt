@@ -14,9 +14,6 @@ class MyListViewModel @ViewModelInject constructor(
     private val getStockListFromLocalFile: GetStockListFromLocalFile
 ) : ViewModel() {
 
-    private val stocksLiveData = MutableLiveData<List<Stock>>()
-    val stocks: LiveData<List<Stock>> = stocksLiveData
-
     private val isLoadingLiveData = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = isLoadingLiveData
 

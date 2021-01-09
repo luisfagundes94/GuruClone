@@ -1,7 +1,6 @@
 package com.luisfelipe.feature_stock.presentation.my_list
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -69,10 +68,7 @@ class MyListFragment : Fragment(R.layout.fragment_my_list) {
         viewModel.apply {
             isLoading.observe(viewLifecycleOwner, {
                 when (it) {
-                    true -> {
-                        showShimmerEffect()
-                        Log.d("showShimmer", "hello!")
-                    }
+                    true -> { showShimmerEffect() }
                     false -> hideShimmerEffect()
                 }
             })
