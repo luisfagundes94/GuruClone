@@ -17,12 +17,17 @@ class MyListViewModel @ViewModelInject constructor(
     private val stocksLiveData = MutableLiveData<List<Stock>>()
     val stocks: LiveData<List<Stock>> = stocksLiveData
 
+    private val isLoadingLiveData = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = isLoadingLiveData
+
     private val stockListResultStatusLiveData = MutableLiveData<ResultStatus<List<Stock>>>()
     val stockListResultStatus: LiveData<ResultStatus<List<Stock>>> = stockListResultStatusLiveData
 
     fun getStockList() = viewModelScope.launch {
+        isLoadingLiveData.postValue(true)
         val stockListResultStatus = getStockListFromLocalFile()
         stockListResultStatusLiveData.postValue(stockListResultStatus)
+        isLoadingLiveData.postValue(false)
     }
 
 }
