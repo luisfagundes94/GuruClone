@@ -55,6 +55,8 @@ object Dependencies {
         const val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
 
         const val roundedImageView = "com.makeramen:roundedimageview:${Versions.roundedImageView}"
+
+        const val shimmerEffect = "com.facebook.shimmer:shimmer:${Versions.shimmerEffect}"
     }
 
     object Data {
@@ -78,5 +80,7 @@ object Dependencies {
         const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
         const val coroutinesTesting = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesTesting}"
         const val archCoreTesting = "androidx.arch.core:core-testing:${Versions.archCoreTesting}"
+        const val fragmentTesting = "androidx.fragment:fragment-testing:${Versions.fragmentTesting}"
+
     }
 }

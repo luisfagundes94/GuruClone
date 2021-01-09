@@ -40,6 +40,7 @@ object Versions {
     const val picasso = "2.71828"
     const val roundedImageView = "2.3.0"
     const val recyclerViewSwipeDecorator = "1.2.3"
+    const val shimmerEffect = "0.1.0@aar"
 
     // Data
     const val room = "2.2.6"
@@ -52,4 +53,5 @@ object Versions {
     const val espresso = "3.3.0"
     const val coroutinesTesting = "1.3.6"
     const val archCoreTesting = "2.1.0"
+    const val fragmentTesting = "1.2.5"
 }

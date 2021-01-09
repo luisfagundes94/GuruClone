@@ -1,6 +1,7 @@
 package com.luisfelipe.feature_stock.presentation.my_list
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -66,6 +67,15 @@ class MyListFragment : Fragment(R.layout.fragment_my_list) {
 
     private fun initViewModelObservers() {
         viewModel.apply {
+            isLoading.observe(viewLifecycleOwner, {
+                when (it) {
+                    true -> {
+                        showShimmerEffect()
+                        Log.d("showShimmer", "hello!")
+                    }
+                    false -> hideShimmerEffect()
+                }
+            })
             stockListResultStatus.observe(viewLifecycleOwner, { resultStatus ->
                 when (resultStatus) {
                     is ResultStatus.Success -> myListAdapter.updateStocks(resultStatus.data)
@@ -74,6 +84,18 @@ class MyListFragment : Fragment(R.layout.fragment_my_list) {
                 }
             })
         }
+    }
+
+    private fun showShimmerEffect() {
+        binding.shimmerFrameLayout.startShimmerAnimation()
+        binding.shimmerFrameLayout.visibility = View.VISIBLE
+        binding.recyclerViewStocks.visibility = View.GONE
+    }
+
+    private fun hideShimmerEffect() {
+        binding.shimmerFrameLayout.stopShimmerAnimation()
+        binding.shimmerFrameLayout.visibility = View.GONE
+        binding.recyclerViewStocks.visibility = View.VISIBLE
     }
 
     override fun onDestroyView() {
