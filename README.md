@@ -40,6 +40,7 @@ Todo o código relacionado a certa funcionalidade está contido em um módulo es
 - Melhor separação de responsabilidades. Cada módulo contém suas próprias classes e API's necessárias, e não pode ser referenciada sem uma dependência de módulo explicito.
 - Funcionalidades podem ser desenvolvidas em paralelo por times diferentes
 - Rápido tempo de compilação
+- Fácil integração de uma feature em outro projeto
 
 ### MVVM com arquitetura clean
 
