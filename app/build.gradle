@@ -44,6 +44,10 @@ dependencies {
 
     implementation project(':feature-home')
     implementation project(':feature-stock')
+    implementation project(':feature-explore')
+    implementation project(':feature-wallet')
+    implementation project(':feature-profile')
+    implementation project(':ui-resources')
     implementation project(':extensions')
 
     // Core

@@ -43,6 +43,9 @@ android {
 
 dependencies {
 
+    // Module
+    implementation project(':ui-resources')
+
     // Core
     implementation Dependencies.Core.kotlin
     implementation Dependencies.Core.legacySupport

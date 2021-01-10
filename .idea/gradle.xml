@@ -20,6 +20,7 @@
             <option value="$PROJECT_DIR$/feature-profile" />
             <option value="$PROJECT_DIR$/feature-stock" />
             <option value="$PROJECT_DIR$/feature-wallet" />
+            <option value="$PROJECT_DIR$/ui-resources" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

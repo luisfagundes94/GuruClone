@@ -1,3 +1,4 @@
+include ':ui-resources'
 include ':feature-wallet'
 include ':feature-profile'
 include ':feature-explore'
