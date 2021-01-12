@@ -7,7 +7,7 @@ class SettingsRepositoryImpl(private val settingsCache: SettingsCache) : Setting
 
     override suspend fun getIsUserFirstTime() = settingsCache.getIsUserFirstTime()
 
-    override suspend fun setIsUserFirstTime(isFirstTime: Boolean) =
+    override suspend fun setIsUserFirstTime(isFirstTime: Boolean): Unit =
         settingsCache.setIsUserFirstTime(isFirstTime)
 
 }

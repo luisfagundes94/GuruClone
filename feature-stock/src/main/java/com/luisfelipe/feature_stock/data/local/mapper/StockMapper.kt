@@ -19,5 +19,30 @@ class StockMapper {
             }
             return stockList
         }
+
+        fun mapDomainToData(stockList: List<Stock>): List<StockData> {
+            val stockListData = mutableListOf<StockData>()
+            for (stock in stockList) {
+                val stockData = StockData(
+                    ticker = stock.ticker,
+                    price = stock.price,
+                    company = stock.company.name,
+                    imageUrl = stock.company.logo,
+                    variation_percent = stock.variationPercent
+                )
+                stockListData.add(stockData)
+            }
+            return stockListData
+        }
+
+        fun mapDomainToData(stock: Stock): StockData {
+            return StockData(
+                company = stock.company.name,
+                imageUrl = stock.company.logo,
+                price = stock.price,
+                ticker = stock.ticker,
+                variation_percent = stock.variationPercent
+            )
+        }
     }
 }

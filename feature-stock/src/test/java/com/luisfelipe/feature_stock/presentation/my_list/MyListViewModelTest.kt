@@ -2,9 +2,7 @@ package com.luisfelipe.feature_stock.presentation.my_list
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.luisfelipe.feature_stock.domain.enums.ResultStatus
-import com.luisfelipe.feature_stock.domain.usecases.GetIsUserFirstTimeFromCache
-import com.luisfelipe.feature_stock.domain.usecases.GetStockListFromLocalFile
-import com.luisfelipe.feature_stock.domain.usecases.SetIsUserFirstTimeToCache
+import com.luisfelipe.feature_stock.domain.usecases.*
 import com.luisfelipe.utils.CoroutineRule
 import com.luisfelipe.utils.FakeStockData
 import com.luisfelipe.utils.FakeStockData.ERROR_MESSAGE
@@ -31,12 +29,18 @@ class MyListViewModelTest{
     private val getStockListFromLocalFile: GetStockListFromLocalFile = mockk()
     private val getIsUserFirstTimeFromCache: GetIsUserFirstTimeFromCache = mockk()
     private val setIsUserFirstTimeFromCache: SetIsUserFirstTimeToCache = mockk()
+    private val getStockListFromLocalDatabase: GetStockListFromLocalDatabase = mockk()
+    private val deleteStockFromLocalDatabase: DeleteStockFromLocalDatabase = mockk()
+    private val insertStockListToLocalDatabase: InsertStockListToLocalDatabase = mockk()
 
     private val viewModel = spyk(
         MyListViewModel(
             getStockListFromLocalFile,
             getIsUserFirstTimeFromCache,
-            setIsUserFirstTimeFromCache
+            setIsUserFirstTimeFromCache,
+            getStockListFromLocalDatabase,
+            deleteStockFromLocalDatabase,
+            insertStockListToLocalDatabase
         )
     )
 
@@ -49,7 +53,7 @@ class MyListViewModelTest{
 
         // Act
         coroutinesTestRule.testDispatcher.runBlockingTest {
-            viewModel.getStockList()
+            viewModel.getStockListFromFile()
         }
 
         // Assert
@@ -64,7 +68,7 @@ class MyListViewModelTest{
 
         // Act
         coroutinesTestRule.testDispatcher.runBlockingTest {
-            viewModel.getStockList()
+            viewModel.getStockListFromFile()
         }
 
         // Assert
@@ -79,7 +83,7 @@ class MyListViewModelTest{
 
         // Act
         coroutinesTestRule.testDispatcher.runBlockingTest {
-            viewModel.getStockList()
+            viewModel.getStockListFromFile()
         }
 
         // Assert

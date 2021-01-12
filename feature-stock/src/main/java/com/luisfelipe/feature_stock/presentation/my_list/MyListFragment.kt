@@ -31,13 +31,6 @@ class MyListFragment : Fragment(R.layout.fragment_my_list) {
 
     private val viewModel: MyListViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        viewModel.verifyIfItIsTheUsersFirstTimeOnCache()
-        //viewModel.getStockList()
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -52,6 +45,8 @@ class MyListFragment : Fragment(R.layout.fragment_my_list) {
 
         initRecyclerView()
         initViewModelObservers()
+
+        viewModel.verifyIfItIsTheUsersFirstTimeOnCache()
     }
 
     private fun initRecyclerView() {
@@ -73,22 +68,25 @@ class MyListFragment : Fragment(R.layout.fragment_my_list) {
         viewModel.apply {
             isUserFirstTime.observe(viewLifecycleOwner, {
                 when (it) {
-                    true -> toast("firstTime!")
-                    false -> toast("notTheFirstTime!")
+                    true -> { getStockListFromFile() }
+                    false -> {}
                 }
             })
             isLoading.observe(viewLifecycleOwner, {
                 when (it) {
-                    true -> { showShimmerEffect() }
+                    true -> showShimmerEffect()
                     false -> hideShimmerEffect()
                 }
             })
             stockListResultStatus.observe(viewLifecycleOwner, { resultStatus ->
                 when (resultStatus) {
-                    is ResultStatus.Success -> myListAdapter.updateStocks(resultStatus.data)
+                    is ResultStatus.Success -> saveStockListToLocalDb(resultStatus.data)
                     is ResultStatus.Error -> toast(getString(R.string.warning_failed_to_fetch_stocks))
                     is ResultStatus.Empty -> toast(getString(R.string.warning_empty_list))
                 }
+            })
+            stockListFromLocalDb.observe(viewLifecycleOwner, { stocks ->
+                myListAdapter.updateStocks(stocks)
             })
         }
     }

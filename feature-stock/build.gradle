@@ -59,7 +59,12 @@ dependencies {
 
     // Data
     implementation Dependencies.Data.gson
+
     implementation Dependencies.Data.dataStore
+
+    kapt Dependencies.Data.roomCompiler
+    implementation Dependencies.Data.roomKtx
+    implementation Dependencies.Data.roomRuntime
 
     // UI
     implementation Dependencies.UI.appCompat
