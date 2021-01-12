@@ -23,7 +23,7 @@ object StockModule {
 
 
     @Provides
-    fun providesRepository(
+    fun provideRepository(
         @ApplicationContext context: Context,
         service: StockService
     ): StockRepository =
@@ -31,10 +31,10 @@ object StockModule {
 
 
     @Provides
-    fun providesService() = StockService()
+    fun provideService() = StockService()
 
 
     @Provides
-    fun providesStockListFromLocalFile(repository: StockRepository) =
+    fun provideStockListFromLocalFile(repository: StockRepository) =
         GetStockListFromLocalFile(repository)
 }
