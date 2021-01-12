@@ -21,6 +21,8 @@ class MyListAdapter: RecyclerView.Adapter<MyListAdapter.StockViewHolder>() {
         this.onStockLongClickListener = listener
     }
 
+    fun getStocks() = stocks
+
     fun updateStocks(stocks: List<Stock>) {
         if (this.stocks.isNotEmpty()) this.stocks.clear()
 

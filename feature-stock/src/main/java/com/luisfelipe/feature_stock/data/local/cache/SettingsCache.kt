@@ -18,16 +18,14 @@ class SettingsCache(private val context: Context) {
     private val dataStore = context.createDataStore(name = DATA_STORE_NAME)
     private val dataStoreKey = preferencesKey<Boolean>(IS_USER_FIRST_TIME_KEY)
 
+    suspend fun getIsUserFirstTime(): Boolean {
+        val preferences = dataStore.data.firstOrNull()
+        return preferences?.get(dataStoreKey) ?: ITS_USER_FIRST_TIME_DEFAULT_VALUE
+    }
+
     suspend fun setIsUserFirstTime(isFirstTime: Boolean) {
         dataStore.edit { preferences ->
             preferences[dataStoreKey] = isFirstTime
         }
     }
-
-    suspend fun getIsUserFirstTime(): Boolean {
-        val preferences = dataStore.data.firstOrNull()
-        val isUserFirstTime = preferences?.get(dataStoreKey)
-        return isUserFirstTime ?: ITS_USER_FIRST_TIME_DEFAULT_VALUE
-    }
-
 }

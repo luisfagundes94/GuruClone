@@ -76,6 +76,10 @@ object StockModule {
         GetStockListFromLocalDatabase(repository)
 
     @Provides
+    fun provideSaveStockToLocalDatabase(repository: StockRepository) =
+        InsertStockToLocalDatabase(repository)
+
+    @Provides
     fun provideDeleteStockFromLocalDatabase(repository: StockRepository) =
         DeleteStockFromLocalDatabase(repository)
 
@@ -88,7 +92,7 @@ object StockModule {
         GetIsUserFirstTimeFromCache(settingsRepository)
 
     @Provides
-    fun provideSetIsUserFirstTimeToCache(settingsRepository: SettingsRepository) =
+    fun provideSetIsUserFirstTimeFromCache(settingsRepository: SettingsRepository) =
         SetIsUserFirstTimeToCache(settingsRepository)
-
+    
 }

@@ -54,6 +54,9 @@ dependencies {
     implementation Dependencies.Core.legacySupport
     implementation Dependencies.Core.coreKtx
 
+    // Data
+    implementation Dependencies.Data.dataStore
+
     // UI
     implementation Dependencies.UI.appCompat
     implementation Dependencies.UI.material

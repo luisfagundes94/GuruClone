@@ -44,6 +44,11 @@ class StockRepositoryImpl(
         }
     }
 
+    override suspend fun saveStockToLocalDatabase(stock: Stock) {
+        val stockData = StockMapper.mapDomainToData(stock)
+        stockDAO.insertStock(stockData)
+    }
+
     override suspend fun deleteStockFromLocalDatabase(stock: Stock) {
         val stockData = StockMapper.mapDomainToData(stock)
         stockDAO.deleteStock(stockData)

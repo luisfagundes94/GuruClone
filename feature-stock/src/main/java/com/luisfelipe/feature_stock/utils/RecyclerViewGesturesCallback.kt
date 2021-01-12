@@ -6,15 +6,17 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
+import com.luisfelipe.feature_stock.R
 import com.luisfelipe.feature_stock.domain.models.Stock
 import com.luisfelipe.feature_stock.presentation.my_list.MyListAdapter
-import com.luisfelipe.feature_stock.R
+import com.luisfelipe.feature_stock.presentation.my_list.MyListViewModel
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 
 class RecyclerViewGesturesCallback(
     private val context: Context,
     private val recyclerView: RecyclerView,
-    private val listAdapter: MyListAdapter
+    private val listAdapter: MyListAdapter,
+    private val viewModel: MyListViewModel
 ) : ItemTouchHelper.SimpleCallback(
     ItemTouchHelper.UP or ItemTouchHelper.DOWN or ItemTouchHelper.START or ItemTouchHelper.END,
     ItemTouchHelper.LEFT
@@ -25,11 +27,14 @@ class RecyclerViewGesturesCallback(
         target: RecyclerView.ViewHolder
     ): Boolean {
         listAdapter.move(viewHolder.adapterPosition, target.adapterPosition)
+//        val stockList = listAdapter.getStocks()
+//        viewModel.saveStockListToLocalDb(stockList)
         return false
     }
 
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
         val (position, stock) = listAdapter.remove(viewHolder.adapterPosition)
+        viewModel.deleteStockFromLocalDb(stock)
         showDeletedItemSnackbar(position, stock)
     }
 
@@ -77,7 +82,10 @@ class RecyclerViewGesturesCallback(
             stock.ticker + " " + context.getString(R.string.warning_item_deleted),
             Snackbar.LENGTH_LONG
         )
-            .setAction(context.getString(R.string.undo)) { listAdapter.add(position, stock) }
+            .setAction(context.getString(R.string.undo)) {
+                listAdapter.add(position, stock)
+                viewModel.saveStockToLocalDb(stock)
+            }
             .show()
     }
 }

@@ -16,7 +16,8 @@ class MyListViewModel @ViewModelInject constructor(
     private val setIsUserFirstTimeToCache: SetIsUserFirstTimeToCache,
     private val getStockListFromLocalDatabase: GetStockListFromLocalDatabase,
     private val deleteStockFromLocalDatabase: DeleteStockFromLocalDatabase,
-    private val insertStockListToLocalDatabase: InsertStockListToLocalDatabase
+    private val insertStockListToLocalDatabase: InsertStockListToLocalDatabase,
+    private val insertStockToLocalDatabase: InsertStockToLocalDatabase,
 ) : ViewModel() {
 
     private val isUserFirstTimeLiveData = MutableLiveData<Boolean>()
@@ -45,7 +46,11 @@ class MyListViewModel @ViewModelInject constructor(
         isLoadingLiveData.postValue(false)
     }
 
-    fun deleteStock(stock: Stock) = viewModelScope.launch {
+    fun saveStockToLocalDb(stock: Stock) = viewModelScope.launch {
+        insertStockToLocalDatabase(stock)
+    }
+
+    fun deleteStockFromLocalDb(stock: Stock) = viewModelScope.launch {
         deleteStockFromLocalDatabase(stock)
     }
 

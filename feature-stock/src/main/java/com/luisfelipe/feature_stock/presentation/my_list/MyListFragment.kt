@@ -49,6 +49,7 @@ class MyListFragment : Fragment(R.layout.fragment_my_list) {
         viewModel.verifyIfItIsTheUsersFirstTimeOnCache()
     }
 
+
     private fun initRecyclerView() {
         binding.recyclerViewStocks.apply {
             setHasFixedSize(true)
@@ -58,7 +59,8 @@ class MyListFragment : Fragment(R.layout.fragment_my_list) {
             val recyclerViewGesturesCallback = RecyclerViewGesturesCallback(
                 context,
                 binding.recyclerViewStocks,
-                myListAdapter
+                myListAdapter,
+                viewModel
             )
             ItemTouchHelper(recyclerViewGesturesCallback).attachToRecyclerView(this)
         }
@@ -68,7 +70,7 @@ class MyListFragment : Fragment(R.layout.fragment_my_list) {
         viewModel.apply {
             isUserFirstTime.observe(viewLifecycleOwner, {
                 when (it) {
-                    true -> { getStockListFromFile() }
+                    true -> getStockListFromFile()
                     false -> {}
                 }
             })
