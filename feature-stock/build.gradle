@@ -59,6 +59,7 @@ dependencies {
 
     // Data
     implementation Dependencies.Data.gson
+    implementation Dependencies.Data.dataStore
 
     // UI
     implementation Dependencies.UI.appCompat

@@ -64,6 +64,7 @@ object Dependencies {
         const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
         const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
         const val gson = "com.google.code.gson:gson:${Versions.gson}"
+        const val dataStore = "androidx.datastore:datastore-preferences:${Versions.dataStore}"
     }
 
     object DI {

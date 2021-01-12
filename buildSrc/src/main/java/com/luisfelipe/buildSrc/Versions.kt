@@ -45,6 +45,7 @@ object Versions {
     // Data
     const val room = "2.2.6"
     const val gson = "2.8.6"
+    const val dataStore = "1.0.0-alpha05"
 
     // Testing
     const val testCore = "1.3.0"

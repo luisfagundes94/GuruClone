@@ -16,11 +16,8 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 @InstallIn(ApplicationComponent::class)
 object StockModule {
 
-
-
     @Provides
     fun providesAdapter() = MyListAdapter()
-
 
     @Provides
     fun provideRepository(
@@ -29,10 +26,8 @@ object StockModule {
     ): StockRepository =
         StockRepositoryImpl(context, service)
 
-
     @Provides
     fun provideService() = StockService()
-
 
     @Provides
     fun provideStockListFromLocalFile(repository: StockRepository) =
