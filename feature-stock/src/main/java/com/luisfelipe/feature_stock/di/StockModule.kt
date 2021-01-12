@@ -1,6 +1,8 @@
 package com.luisfelipe.feature_stock.di
 
 import android.content.Context
+import com.luisfelipe.feature_stock.data.local.cache.SettingsCache
+import com.luisfelipe.feature_stock.data.local.repository_impl.SettingsRepositoryImpl
 import com.luisfelipe.feature_stock.data.local.repository_impl.StockRepositoryImpl
 import com.luisfelipe.feature_stock.data.local.service.StockService
 import com.luisfelipe.feature_stock.domain.repositories.StockRepository
@@ -20,7 +22,7 @@ object StockModule {
     fun providesAdapter() = MyListAdapter()
 
     @Provides
-    fun provideRepository(
+    fun provideStockRepository(
         @ApplicationContext context: Context,
         service: StockService
     ): StockRepository =
@@ -32,4 +34,11 @@ object StockModule {
     @Provides
     fun provideStockListFromLocalFile(repository: StockRepository) =
         GetStockListFromLocalFile(repository)
+
+    @Provides
+    fun provideSettingsRepository(settingsCache: SettingsCache) =
+        SettingsRepositoryImpl(settingsCache)
+
+    @Provides
+    fun provideSettingsCache(@ApplicationContext context: Context) = SettingsCache(context)
 }
