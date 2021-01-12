@@ -75,12 +75,15 @@ object Dependencies {
     object Testing {
         const val mockk = "io.mockk:mockk:${Versions.mockk}"
         const val mockkAndroid = "io.mockk:mockk-android:${Versions.mockk}"
+        const val runner = "androidx.test:runner:${Versions.runner}"
         const val junit = "junit:junit:${Versions.junit}"
         const val junitAndroid = "androidx.test.ext:junit:${Versions.junitAndroid}"
         const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+        const val espressoContrib = "androidx.test.espresso:espresso-contrib:${Versions.espresso}"
         const val coroutinesTesting = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesTesting}"
         const val archCoreTesting = "androidx.arch.core:core-testing:${Versions.archCoreTesting}"
         const val fragmentTesting = "androidx.fragment:fragment-testing:${Versions.fragmentTesting}"
+        const val testCore =  "androidx.test:core:${Versions.testCore}"
 
     }
 }

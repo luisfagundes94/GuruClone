@@ -2,16 +2,10 @@ package com.luisfelipe.feature_stock.presentation.my_list
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.luisfelipe.feature_stock.domain.enums.ResultStatus
-import com.luisfelipe.feature_stock.domain.models.Company
-import com.luisfelipe.feature_stock.domain.models.Stock
 import com.luisfelipe.feature_stock.domain.usecases.GetStockListFromLocalFile
 import com.luisfelipe.utils.CoroutineRule
-import com.luisfelipe.utils.FakeStockData.Companion.COMPANY_LOGO
-import com.luisfelipe.utils.FakeStockData.Companion.COMPANY_NAME
-import com.luisfelipe.utils.FakeStockData.Companion.ERROR_MESSAGE
-import com.luisfelipe.utils.FakeStockData.Companion.PRICE
-import com.luisfelipe.utils.FakeStockData.Companion.TICKER
-import com.luisfelipe.utils.FakeStockData.Companion.VARIATION_PERCENT
+import com.luisfelipe.utils.FakeStockData
+import com.luisfelipe.utils.FakeStockData.ERROR_MESSAGE
 import com.luisfelipe.utils.getOrAwaitValue
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -38,14 +32,7 @@ class MyListViewModelTest{
 
     private val viewModel = spyk(MyListViewModel(getStockListFromLocalFile))
 
-    private val mockedStockList = listOf(
-        Stock(
-            company = Company(COMPANY_NAME, COMPANY_LOGO),
-            ticker = TICKER,
-            variationPercent = VARIATION_PERCENT,
-            price = PRICE
-        )
-    )
+    private val mockedStockList = FakeStockData.stockList
 
     @Test
     fun `verify state when getStockListFromLocalFile returns an empty list`() {

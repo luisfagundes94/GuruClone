@@ -47,6 +47,7 @@ object Versions {
     const val gson = "2.8.6"
 
     // Testing
+    const val testCore = "1.3.0"
     const val mockk = "1.10.0"
     const val junit = "4.13.1"
     const val junitAndroid = "1.1.2"
@@ -54,4 +55,5 @@ object Versions {
     const val coroutinesTesting = "1.3.6"
     const val archCoreTesting = "2.1.0"
     const val fragmentTesting = "1.2.5"
+    const val runner = "1.3.0"
 }

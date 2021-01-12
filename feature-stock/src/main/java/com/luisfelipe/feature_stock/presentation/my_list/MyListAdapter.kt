@@ -5,18 +5,15 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.luisfelipe.feature_stock.R
+import com.luisfelipe.feature_stock.databinding.StockItemBinding
 import com.luisfelipe.feature_stock.domain.models.Stock
 import com.luisfelipe.feature_stock.utils.load
-import com.luisfelipe.feature_stock.utils.setOnDebouncedLongClickListener
-import com.luisfelipe.stock.R
-import com.luisfelipe.stock.databinding.StockItemBinding
 import java.util.*
 
-class MyListAdapter(context: Context) : RecyclerView.Adapter<MyListAdapter.StockViewHolder>() {
+class MyListAdapter: RecyclerView.Adapter<MyListAdapter.StockViewHolder>() {
 
     private val stocks = mutableListOf<Stock>()
-    private val positiveColorHex = context.resources.getString(0+R.color.green_300)
-    private val negativeColorHex = context.resources.getString(0+R.color.red)
 
     private var onStockLongClickListener: ((stock: Stock) -> Unit)? = null
 
@@ -52,7 +49,7 @@ class MyListAdapter(context: Context) : RecyclerView.Adapter<MyListAdapter.Stock
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StockViewHolder {
         val itemBinding = StockItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return StockViewHolder(itemBinding)
+        return StockViewHolder(itemBinding, parent.context)
     }
 
     override fun onBindViewHolder(holder: StockViewHolder, position: Int) {
@@ -61,12 +58,14 @@ class MyListAdapter(context: Context) : RecyclerView.Adapter<MyListAdapter.Stock
 
     override fun getItemCount() = stocks.size
 
-    inner class StockViewHolder(private val itemBinding: StockItemBinding) : RecyclerView.ViewHolder(itemBinding.root) {
+    class StockViewHolder(private val itemBinding: StockItemBinding, context: Context) : RecyclerView.ViewHolder(itemBinding.root) {
+
+        private val positiveColorHex = context.resources.getString(0+R.color.green_300)
+        private val negativeColorHex = context.resources.getString(0+R.color.red)
 
         private val variationPercent = itemBinding.variationPercent
 
         fun bind(stock: Stock) {
-            itemBinding.cardView.setOnDebouncedLongClickListener { onStockLongClickListener?.invoke(stock) }
             itemBinding.imgCompany.load(stock.company.logo)
             itemBinding.ticker.text = stock.ticker
             itemBinding.companyName.text = stock.company.name
@@ -74,7 +73,7 @@ class MyListAdapter(context: Context) : RecyclerView.Adapter<MyListAdapter.Stock
             updateVariationPercentText(stock)
         }
 
-        private fun updateVariationPercentText(stock: Stock) {
+        internal fun updateVariationPercentText(stock: Stock) {
             if (stock.variationPercent < 0) {
                 variationPercent.setTextColor(Color.parseColor(negativeColorHex))
                 variationPercent.text = stock.getFormattedVariationInPercentage()
@@ -84,7 +83,7 @@ class MyListAdapter(context: Context) : RecyclerView.Adapter<MyListAdapter.Stock
             }
         }
 
-        private fun updateItemBackgroundColor(isItemSelected: Boolean) {
+        internal fun updateItemBackgroundColor(isItemSelected: Boolean) {
             if (isItemSelected) itemBinding.cardView.setBackgroundResource(R.color.light_green)
             else itemBinding.cardView.setCardBackgroundColor(Color.TRANSPARENT)
         }

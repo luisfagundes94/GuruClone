@@ -7,17 +7,21 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ItemTouchHelper
+import com.luisfelipe.feature_stock.R
+import com.luisfelipe.feature_stock.databinding.FragmentMyListBinding
 import com.luisfelipe.feature_stock.domain.enums.ResultStatus
 import com.luisfelipe.feature_stock.utils.RecyclerViewGesturesCallback
 import com.luisfelipe.feature_stock.utils.toast
 import com.luisfelipe.feature_stock.utils.verticalRecyclerViewLayout
-import com.luisfelipe.stock.R
-import com.luisfelipe.stock.databinding.FragmentMyListBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class MyListFragment : Fragment(R.layout.fragment_my_list) {
+
+    companion object {
+        fun getInstance() = MyListFragment()
+    }
 
     private var _binding: FragmentMyListBinding? = null
     private val binding get() = _binding!!

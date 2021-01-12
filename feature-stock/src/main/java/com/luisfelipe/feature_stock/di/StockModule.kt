@@ -19,7 +19,7 @@ object StockModule {
 
 
     @Provides
-    fun providesAdapter(@ApplicationContext context: Context) = MyListAdapter(context)
+    fun providesAdapter() = MyListAdapter()
 
 
     @Provides

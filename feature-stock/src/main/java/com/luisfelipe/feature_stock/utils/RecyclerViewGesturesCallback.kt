@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.luisfelipe.feature_stock.domain.models.Stock
 import com.luisfelipe.feature_stock.presentation.my_list.MyListAdapter
-import com.luisfelipe.stock.R
+import com.luisfelipe.feature_stock.R
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 
 class RecyclerViewGesturesCallback(
