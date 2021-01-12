@@ -34,7 +34,8 @@ class MyListFragment : Fragment(R.layout.fragment_my_list) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel.getStockList()
+        viewModel.verifyIfItIsTheUsersFirstTimeOnCache()
+        //viewModel.getStockList()
     }
 
     override fun onCreateView(
@@ -70,6 +71,12 @@ class MyListFragment : Fragment(R.layout.fragment_my_list) {
 
     private fun initViewModelObservers() {
         viewModel.apply {
+            isUserFirstTime.observe(viewLifecycleOwner, {
+                when (it) {
+                    true -> toast("firstTime!")
+                    false -> toast("notTheFirstTime!")
+                }
+            })
             isLoading.observe(viewLifecycleOwner, {
                 when (it) {
                     true -> { showShimmerEffect() }

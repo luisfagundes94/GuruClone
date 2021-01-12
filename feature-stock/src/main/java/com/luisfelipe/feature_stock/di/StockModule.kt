@@ -5,8 +5,11 @@ import com.luisfelipe.feature_stock.data.local.cache.SettingsCache
 import com.luisfelipe.feature_stock.data.local.repository_impl.SettingsRepositoryImpl
 import com.luisfelipe.feature_stock.data.local.repository_impl.StockRepositoryImpl
 import com.luisfelipe.feature_stock.data.local.service.StockService
+import com.luisfelipe.feature_stock.domain.repositories.SettingsRepository
 import com.luisfelipe.feature_stock.domain.repositories.StockRepository
+import com.luisfelipe.feature_stock.domain.usecases.GetIsUserFirstTimeFromCache
 import com.luisfelipe.feature_stock.domain.usecases.GetStockListFromLocalFile
+import com.luisfelipe.feature_stock.domain.usecases.SetIsUserFirstTimeToCache
 import com.luisfelipe.feature_stock.presentation.my_list.MyListAdapter
 import dagger.Module
 import dagger.Provides
@@ -36,9 +39,17 @@ object StockModule {
         GetStockListFromLocalFile(repository)
 
     @Provides
-    fun provideSettingsRepository(settingsCache: SettingsCache) =
+    fun provideSettingsRepository(settingsCache: SettingsCache): SettingsRepository =
         SettingsRepositoryImpl(settingsCache)
 
     @Provides
     fun provideSettingsCache(@ApplicationContext context: Context) = SettingsCache(context)
+
+    @Provides
+    fun provideGetIsUserFirstTimeFromCache(settingsRepository: SettingsRepository) =
+        GetIsUserFirstTimeFromCache(settingsRepository)
+
+    @Provides
+    fun provideSetIsUserFirstTimeToCache(settingsRepository: SettingsRepository) =
+        SetIsUserFirstTimeToCache(settingsRepository)
 }
