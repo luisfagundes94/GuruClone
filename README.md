@@ -61,7 +61,14 @@ Camada fonte da aplicação onde são estabelecidas as regras de negócio.
 _**Presentation** (UI)_ <br>
 É a camada mais próxima do que o usuário vê na tela, fazendo uso de viewModels e liveDatas para gerenciar dados e estados em um ciclo de vida 
 
+# Testes
+No módulo feature-stock foram feitos testes unitários no MyListViewModel, StockMapper e no modelo de domínio Stock. Foram utilizados os frameworks MockK (Mockar objetos) e JUnit4 para validar os testes.
 
+# O que gostaria de ter feito
+- Realizado testes de UI com o espresso na tela da lista de ações e no Adapter. Ao escrever os testes, me deparei com um problema em que o dagger-hilt ainda não suporta testes de fragmentos isolados. Na documentação oficial do hilt: 
+  > Warning: Hilt does not currently support FragmentScenario because there is no way to specify an activity class, and Hilt requires a Hilt fragment to be contained in a Hilt activity. One workaround for this is to launch a Hilt activity and then attach your fragment. [link](https://dagger.dev/hilt/testing)
+
+- Persistido dados ao re-organizar itens da lista com o Room.
 
 
 
