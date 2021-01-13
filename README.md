@@ -35,8 +35,6 @@ O aplicativo é um clone parcial do projeto original "Guru", onde é possível a
 - ktlintCheck: Verifica se o código está de acordo com o padrão utilizado pelo ktlin. Use o comando `./gradlew ktlintCheck` para realizar a verificação.
 - ktlintFormat: Formata automaticamente o código para ficar de acordo com o padrão utilizado pelo ktlint. use o comando `./gradlew ktlintFormat` para realizar a formatação.
 
-
-
 # Arquitetura
 O projeto busca o desacoplamento de componentes, fácil navegação de pacotes em sua estrutura e uma alta escalabilidade. É utilizado a abordagem de single-activity, onde o sistema contém apenas uma activity que será o ponto de entrada do aplicativo e as demais telas que serão fragmentos filhos do mesmo.
 
@@ -47,6 +45,8 @@ Todo o código relacionado a certa funcionalidade está contido em um módulo es
 - Funcionalidades podem ser desenvolvidas em paralelo por times diferentes
 - Rápido tempo de compilação
 - Fácil integração de uma feature em outro projeto
+
+OBS: As funcionalidades relacionada a **lista de ações** estão contidas no módulo feature-stock.
 
 ### MVVM com arquitetura clean
 
